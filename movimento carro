@@ -24,3 +24,4 @@ public class mov_car : MonoBehaviour
 
         rddirf.steerAngle = h;//atribui a força da direção na roda direita frente  
     }
+}
