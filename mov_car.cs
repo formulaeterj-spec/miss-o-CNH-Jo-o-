@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class mov_car : MonoBehaviour
+{
+
+    [SerializeField] private float f_motor, f_freio, f_direção;//força do motor = aceleração, força do freio = desaceleração, força da direção = virar o carro
+
+    [SerializeField] private WheelCollider resqf, rdirf, resqt, rdirt;//resqf = roda esquerda frente, rdirf = roda direita frente, resqt = roda esquerda traseira, rdirt = roda direita traseira
+
+    void Update()
+    {
+        float v = Input.GetAxis("Vertical") * f_motor;//pega o valor do eixo vertical do teclado, que é o W e S, e atribui a variável v
+
+        float h = Input.GetAxis("Horizontal") * f_direção;//pega o valor do eixo horizontal do teclado, que é o A e D, e atribui a variável h
+
+        resqt.motorTorque = v;//atribui a força do motor na roda esquerda traseira
+
+        rdirt.motorTorque = v;//atribui a força do motor na roda direita traseira
+
+        resqf.steerAngle = h;//atribui a força da direção na roda esquerda frente
+
+        rdirf.steerAngle = h;//atribui a força da direção na roda direita frente  
+    }
+}
